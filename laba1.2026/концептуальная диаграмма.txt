@@ -1,0 +1,12 @@
+@startuml
+entity "Камера" as Camera
+entity "Снимок" as Photo
+entity "Raspberry Pi" as RPI
+entity "Дизель" as Diesel
+entity "Сервер" as Server
+
+Camera ||--o{ Photo : делает
+Photo }o--|| RPI : анализируется
+RPI ||--|| Diesel : управляет
+RPI ||--|| Server : отправляет данные
+@enduml

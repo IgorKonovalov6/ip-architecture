@@ -1,0 +1,17 @@
+@startuml
+actor "Таймер" as Timer
+participant "Камера" as Cam
+participant "RPi" as RPI
+participant "Дизель" as Diesel
+participant "Сервер" as Srv
+
+Timer -> Cam: 1: снимок
+Cam --> RPI: 2: фото
+RPI -> RPI: 3: анализ облачности
+alt облачность > 70%
+    RPI -> Diesel: 4: запуск
+    RPI -> Srv: 5: сохранить событие
+else
+    RPI -> Srv: 5: сохранить норму
+end
+@enduml
